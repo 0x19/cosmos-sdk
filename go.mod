@@ -6,7 +6,7 @@ require (
 	cosmossdk.io/errors v1.0.0-beta.7
 	cosmossdk.io/math v1.0.0-rc.0
 	github.com/99designs/keyring v1.2.1
-	github.com/armon/go-metrics v0.4.1
+	github.com/hashicorp/go-metrics v0.4.1
 	github.com/bgentry/speakeasy v0.1.0
 	github.com/btcsuite/btcd/btcec/v2 v2.3.2
 	github.com/chzyer/readline v0.0.0-20180603132655-2972be24d48e
