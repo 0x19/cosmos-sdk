@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"strings"
 
-	"sigs.k8s.io/yaml"
+	"gopkg.in/yaml.v3"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	paramtypes "github.com/cosmos/cosmos-sdk/x/params/types"

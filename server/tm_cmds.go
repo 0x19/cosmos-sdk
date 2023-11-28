@@ -16,7 +16,7 @@ import (
 	pvm "github.com/tendermint/tendermint/privval"
 	"github.com/tendermint/tendermint/store"
 	tversion "github.com/tendermint/tendermint/version"
-	"sigs.k8s.io/yaml"
+	"gopkg.in/yaml.v3"
 
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/client/flags"

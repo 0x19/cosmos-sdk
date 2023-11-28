@@ -10,7 +10,7 @@ import (
 
 	"github.com/stretchr/testify/require"
 	"github.com/stretchr/testify/suite"
-	"sigs.k8s.io/yaml"
+	"gopkg.in/yaml.v3"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 )

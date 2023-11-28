@@ -3,7 +3,7 @@ package types
 import (
 	"fmt"
 
-	"sigs.k8s.io/yaml"
+	"gopkg.in/yaml.v3"
 
 	"github.com/cosmos/cosmos-sdk/codec"
 	sdk "github.com/cosmos/cosmos-sdk/types"
@@ -127,12 +127,12 @@ func (se SendEnabled) String() string {
 		panic(err)
 	}
 
-	out, err := yaml.JSONToYAML(bz)
-	if err != nil {
-		panic(err)
-	}
+	//out, err := yaml.JSONToYAML(bz)
+	//if err != nil {
+	//	panic(err)
+	//}
 
-	return string(out)
+	return string(bz)
 }
 
 func validateSendEnabled(i interface{}) error {

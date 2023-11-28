@@ -52,8 +52,9 @@ type AppModuleBasic interface {
 
 	DefaultGenesis(codec.JSONCodec) json.RawMessage
 	ValidateGenesis(codec.JSONCodec, client.TxEncodingConfig, json.RawMessage) error
+}
 
-	// client functionality
+type AppModuleClient interface {
 	RegisterGRPCGatewayRoutes(client.Context, *runtime.ServeMux)
 	GetTxCmd() *cobra.Command
 	GetQueryCmd() *cobra.Command
@@ -109,7 +110,9 @@ func (bm BasicManager) ValidateGenesis(cdc codec.JSONCodec, txEncCfg client.TxEn
 // RegisterGRPCGatewayRoutes registers all module rest routes
 func (bm BasicManager) RegisterGRPCGatewayRoutes(clientCtx client.Context, rtr *runtime.ServeMux) {
 	for _, b := range bm {
-		b.RegisterGRPCGatewayRoutes(clientCtx, rtr)
+		if cl, ok := b.(AppModuleClient); ok {
+			cl.RegisterGRPCGatewayRoutes(clientCtx, rtr)
+		}
 	}
 }
 
@@ -119,8 +122,10 @@ func (bm BasicManager) RegisterGRPCGatewayRoutes(clientCtx client.Context, rtr *
 // REF: https://github.com/cosmos/cosmos-sdk/issues/6571
 func (bm BasicManager) AddTxCommands(rootTxCmd *cobra.Command) {
 	for _, b := range bm {
-		if cmd := b.GetTxCmd(); cmd != nil {
-			rootTxCmd.AddCommand(cmd)
+		if cl, ok := b.(AppModuleClient); ok {
+			if cmd := cl.GetTxCmd(); cmd != nil {
+				rootTxCmd.AddCommand(cmd)
+			}
 		}
 	}
 }
@@ -131,8 +136,10 @@ func (bm BasicManager) AddTxCommands(rootTxCmd *cobra.Command) {
 // REF: https://github.com/cosmos/cosmos-sdk/issues/6571
 func (bm BasicManager) AddQueryCommands(rootQueryCmd *cobra.Command) {
 	for _, b := range bm {
-		if cmd := b.GetQueryCmd(); cmd != nil {
-			rootQueryCmd.AddCommand(cmd)
+		if cl, ok := b.(AppModuleClient); ok {
+			if cmd := cl.GetQueryCmd(); cmd != nil {
+				rootQueryCmd.AddCommand(cmd)
+			}
 		}
 	}
 }

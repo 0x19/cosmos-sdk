@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"sigs.k8s.io/yaml"
+	"gopkg.in/yaml.v3"
 
 	govtypes "github.com/cosmos/cosmos-sdk/x/gov/types/v1beta1"
 )

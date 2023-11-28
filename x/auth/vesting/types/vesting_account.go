@@ -4,7 +4,7 @@ import (
 	"errors"
 	"time"
 
-	"sigs.k8s.io/yaml"
+	"gopkg.in/yaml.v3"
 
 	cryptotypes "github.com/cosmos/cosmos-sdk/crypto/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"

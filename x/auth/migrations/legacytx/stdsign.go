@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"sigs.k8s.io/yaml"
+	"gopkg.in/yaml.v3"
 
 	"github.com/cosmos/cosmos-sdk/codec"
 	"github.com/cosmos/cosmos-sdk/codec/legacy"

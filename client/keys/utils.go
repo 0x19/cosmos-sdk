@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"io"
 
-	"sigs.k8s.io/yaml"
+	"gopkg.in/yaml.v3"
 
 	cryptokeyring "github.com/cosmos/cosmos-sdk/crypto/keyring"
 )

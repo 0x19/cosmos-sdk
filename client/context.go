@@ -8,10 +8,8 @@ import (
 	"os"
 
 	"github.com/spf13/viper"
-
-	"sigs.k8s.io/yaml"
-
 	"google.golang.org/grpc"
+	"gopkg.in/yaml.v3"
 
 	"github.com/gogo/protobuf/proto"
 	rpcclient "github.com/tendermint/tendermint/rpc/client"
@@ -314,8 +312,13 @@ func (ctx Context) PrintRaw(toPrint json.RawMessage) error {
 
 func (ctx Context) printOutput(out []byte) error {
 	var err error
+	// exclude yaml conversion
 	if ctx.OutputFormat == "text" {
-		out, err = yaml.JSONToYAML(out)
+		var data interface{}
+		if err := json.Unmarshal(out, &data); err != nil {
+			return err
+		}
+		out, err = yaml.Marshal(data)
 		if err != nil {
 			return err
 		}

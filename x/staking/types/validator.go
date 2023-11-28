@@ -10,7 +10,7 @@ import (
 	"cosmossdk.io/math"
 	abci "github.com/tendermint/tendermint/abci/types"
 	tmprotocrypto "github.com/tendermint/tendermint/proto/tendermint/crypto"
-	"sigs.k8s.io/yaml"
+	"gopkg.in/yaml.v3"
 
 	"github.com/cosmos/cosmos-sdk/codec"
 	codectypes "github.com/cosmos/cosmos-sdk/codec/types"
@@ -69,12 +69,12 @@ func (v Validator) String() string {
 		panic(err)
 	}
 
-	out, err := yaml.JSONToYAML(bz)
-	if err != nil {
-		panic(err)
-	}
+	//out, err := yaml.JSONToYAML(bz)
+	//if err != nil {
+	//	panic(err)
+	//}
 
-	return string(out)
+	return string(bz)
 }
 
 // Validators is a collection of Validator

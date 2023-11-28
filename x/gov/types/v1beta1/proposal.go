@@ -6,7 +6,7 @@ import (
 	"time"
 
 	"github.com/gogo/protobuf/proto"
-	"sigs.k8s.io/yaml"
+	"gopkg.in/yaml.v3"
 
 	codectypes "github.com/cosmos/cosmos-sdk/codec/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"

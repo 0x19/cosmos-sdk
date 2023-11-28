@@ -9,7 +9,7 @@ import (
 
 	"github.com/gogo/protobuf/proto"
 	"github.com/tendermint/tendermint/crypto"
-	"sigs.k8s.io/yaml"
+	"gopkg.in/yaml.v3"
 
 	"github.com/cosmos/cosmos-sdk/codec"
 	codectypes "github.com/cosmos/cosmos-sdk/codec/types"

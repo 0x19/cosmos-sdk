@@ -7,7 +7,7 @@ import (
 	"time"
 
 	"cosmossdk.io/math"
-	"sigs.k8s.io/yaml"
+	"gopkg.in/yaml.v3"
 
 	"github.com/cosmos/cosmos-sdk/codec"
 	sdk "github.com/cosmos/cosmos-sdk/types"
